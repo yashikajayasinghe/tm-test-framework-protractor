@@ -16,3 +16,20 @@ define the other dependencies needed for the project in the 'package.json' file
 ref: https://github.com/angular/protractor/blob/master/exampleTypescript/package.json
 
 run the command ```npm install``` to fetch all the dependencies to the node-modules folder
+
+Next step: after introducing page objects and the project run independently. 
+Instead of accessing protractor installed globaly in the local env, after following the below steps, the project will use protractor installed locally in the node_modules
+
+Add the following to the package.json
+
+ "scripts": {
+    "test": "protractor JSFiles/config.js",
+    "pretest": "tsc",
+    "protractor": "./node_modules/protractor/built/cli.js",
+    "webdriver-update": "./node_modules/.bin/webdriver-manager update"
+  }
+
+  Commands to run
+
+  ``` npm run webdriver-update```
+  ```npm run test```
