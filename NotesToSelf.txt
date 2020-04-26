@@ -33,3 +33,57 @@ Add the following to the package.json
 
   ``` npm run webdriver-update```
   ```npm run test```
+
+  Extend the framework to use cucumber 
+      ref: https://github.com/protractor-cucumber-framework/protractor-cucumber-framework
+
+      create the cucumber-config.ts file
+      Add dependencies to the package.json file
+
+        
+      change 1 ( add  "cucumbertest": "protractor JSFiles/cucumber-config.js", to the scripts object)
+
+      ```
+      "scripts": {
+        "test": "protractor JSFiles/config.js",
+        "pretest": "tsc",
+        "cucumbertest": "protractor JSFiles/cucumber-config.js",
+        "protractor": "./node_modules/protractor/built/cli.js",
+        "webdriver-update": "./node_modules/.bin/webdriver-manager update"
+      },
+      ```
+
+      change 2 (following dependencies are to be fetched to the node-modules folder)
+      ```
+      "protractor-cucumber-framework": "^6.2.1",
+        "cucumber": "^6.0.5",
+        "@types/cucumber": "4.0.4",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1"
+      ```
+
+  After the above changes to the script object in package.json ,
+  need to run cucumber feature files as: 
+  
+  ```tsc``` //to compile typescript files to .js files
+  ```npm run cucumbertest```
+  
+  Else, 
+  
+  we will have to replace the script to be as below, 
+  ```
+   "scripts": {
+        "test": "protractor JSFiles/cucumber-config.js",
+
+  ```
+  And then no need of running ```tsc``` command before ```npm run test```
+  pretest and test are identified as standard commands to node.
+
+
+  Adopt chai assertion library to use with Cucumber, add it as a dependency to package.json.
+  Test assertion syntax help https://www.chaijs.com/
+
+
+
+
+
