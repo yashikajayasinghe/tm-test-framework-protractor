@@ -4,9 +4,8 @@
   "description": "Protractor Test Framework",
   "main": "index.js",
   "scripts": {
-    "test": "protractor JSFiles/config.js",
+    "test": "protractor JSFiles/cucumber-config.js",
     "pretest": "tsc",
-    "cucumbertest": "protractor JSFiles/cucumber-config.js",
     "protractor": "./node_modules/protractor/built/cli.js",
     "webdriver-update": "./node_modules/.bin/webdriver-manager update"
   },
