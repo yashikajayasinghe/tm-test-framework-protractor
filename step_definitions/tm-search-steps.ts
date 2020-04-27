@@ -55,6 +55,6 @@ let expect = chai.expect;
 
 	let SearchResults = await MpSearch.allListingCards;
 
-	expect(SearchResults.length).to.equal(24);
+	expect(SearchResults.length).to.equal(25);
 
   });

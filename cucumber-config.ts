@@ -1,9 +1,13 @@
 /**
  * Configuration file lists:
  * Settings to run files with cucumber feature files
+ * proractor Config is an interface hence you can define the body of the
+ * methods, customized to the needs
+ * Ref: https://github.com/angular/protractor/blob/master/lib/config.ts
  * @Author: YashJ
  */
 import { Config } from 'protractor';
+import * as reporter from 'cucumber-html-reporter';
 
 export let config: Config = {
 
@@ -17,17 +21,40 @@ export let config: Config = {
 
     // path relative to the current config file
     frameworkPath: require.resolve('protractor-cucumber-framework'),
-
-    // require feature files
+    
     specs: [
-        '../features/*.feature' // accepts a glob
+        '../features/*.feature' 
     ],
 
     cucumberOpts: {
-        // require step definitions
+        tags: "@regression",
+        format: 'json:./test_reports/cucumber-json-report.json',       
         require: [
-            './step_definitions/*-steps.js' // accepts a glob
+            './step_definitions/*-steps.js', 
+            './step_definitions/hooks.js' 
         ]
+        
+    },
+    onComplete: () =>{
+        var options = {
+            theme: 'bootstrap',
+            jsonFile: './test_reports/cucumber-json-report.json',
+            output: './test_reports/cucumber-html-report.html',
+            reportSuiteAsScenarios: true,
+            scenarioTimestamp: true,
+            launchReport: true,
+            metadata: {
+                "App Version":"0.3.2",
+                "Test Environment": "STAGING",
+                "Browser": "Chrome  54.0.2840.98",
+                "Platform": "Windows 10",
+                "Parallel": "Scenarios",
+                "Executed": "Remote"
+            }
+        };
+     
+        reporter.generate(options);
     }
+    
 
 };
