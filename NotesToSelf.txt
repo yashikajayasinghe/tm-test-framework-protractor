@@ -83,6 +83,43 @@ Add the following to the package.json
   Adopt chai assertion library to use with Cucumber, add it as a dependency to package.json.
   Test assertion syntax help https://www.chaijs.com/
 
+  ---------------------------------
+  Using cucumber tags to filter tests
+
+  Add the tag to the scenario (in the .feature file)
+  Add the specific tag(s) needs to be run to the cucumber-config.ts file (to the cucumberOpts object)
+  the usual command ```npm run test``` will only execute the tests with the matching tag name
+
+ 
+ Ref: https://github.com/cucumber/cucumber-js
+
+  ----------------------------------
+  using cucumber hooks to synchronize the order of tests 
+
+  Mostly used hooks are 'before' and 'after' in collab with tags
+  new typescript file is created in the step definitions folder (anywhere to list down with step definitions) 
+  Add the hooks.ts file path to the cucumber-config.ts file (to the cucumberOpts object's 'require' field)
+
+  ------------------------------------------------
+  Add cucumber HTML reporting  
+  Ref: https://www.npmjs.com/package/cucumber-html-reporter
+
+Add the cucumber-html-reporter dependency to package.json and ```npm install``` to fetch the dependency package to node_modules folder.
+
+Add 'format' key to the 'cucumberOpts' object of the config file.
+Add reporter.generate method (from cucumber-html-reporter plugin ) to the callback function -> ``` onComplete: () =>{..... ``` .
+Test reports will be generated in the 'test_reports' folder
+
+--------------------------------------------------------
+Get screenshot and add to the report
+Just add the After function to step definitions with a condition to capture screen when scenario returned the Failed status.
+
+Lesson learned: https://github.com/cucumber/cucumber-js/issues/937#issuecomment-332782734 provided somehelp to 
+figure out => function is not working when reffered to the current instance of the scenario object.
+
+
+
+
 
 
 
