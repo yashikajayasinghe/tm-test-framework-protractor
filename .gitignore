@@ -2,6 +2,6 @@ JSFiles
 node_modules
 package-lock.json
 tm-spec.ts
-test_reports/cucumber-html-report.html
-test_reports/cucumber-json-report.json
+cucumber-html-report.html
+cucumber-json-report.json
 
