@@ -6,11 +6,6 @@ import { browser } from "protractor";
  * Ref: https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/hooks.md
  * @Author: YashJ
  */
-Before(function () {
-    // This hook will be executed before all scenarios
-    browser.manage().window().maximize();
-    //console.log('This hook will be executed before all scenarios');
-  });
 
 After( async function(scenario){
   // This hook will be executed After all scenarios
