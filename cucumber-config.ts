@@ -6,7 +6,7 @@
  * Ref: https://github.com/angular/protractor/blob/master/lib/config.ts
  * @Author: YashJ
  */
-import { Config } from 'protractor';
+import { Config, browser } from 'protractor';
 import * as reporter from 'cucumber-html-reporter';
 
 export let config: Config = {
@@ -28,13 +28,18 @@ export let config: Config = {
 
     cucumberOpts: {
         tags: "@regression",
-        format: 'json:./test_reports/cucumber-json-report.json',       
+        strict: true,                  // <boolean> fail if there are any undefined or pending steps
+        format: 'json:./test_reports/cucumber-json-report.json',      // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable) 
         require: [
             './step_definitions/*-steps.js', 
             './step_definitions/hooks.js' 
         ]
         
     },
+    onPrepare: function () {
+        browser.manage().window().maximize(); // maximize the browser before executing the feature files
+      },
+      
     onComplete: () =>{
         var options = {
             theme: 'bootstrap',
