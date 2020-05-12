@@ -118,6 +118,35 @@ Lesson learned: https://github.com/cucumber/cucumber-js/issues/937#issuecomment-
 figure out => function is not working when reffered to the current instance of the scenario object.
 
 
+-----------------------------------------------------------------------------
+Integrate with Jenkins (local Jenkins automation server)
+
+- Install jenkins Ref: https://www.jenkins.io/doc/pipeline/tour/getting-started/
+- start  Jenkins, following the steps in the Guided Tour for getting started (I used powershell - run as administrator)
+- Copy the protractor automation test project  to .jenkins folder in (c:/user/<username>)
+- go to localhost:<portnumber> and follow the initial set up steps then Click on 'New Item' start by adding a name for the job.
+- Select 'Freestyle project' and 'Save'
+- General tab - open 'advanced' config field , select Use custom workspace and add the Protractor automation project path to 'Display Name' filed
+- Build Tab -> Execute Windows batch command
+                  ```npm install```
+        -> Add Build step
+                  ```npm run webdriver-update```
+        -> Add build step
+                  ```npm run test```
+- select 'build now' of the created jenkins job
+- to see the test report go to project 'Workspace' and select the 'test_reports' folder
+
+Next improvement steps:
+  - run chrome headless
+  - automate build trigger on commit
+  - get github plugin and automate build trigger commits to the github repository
+  - more reading https://www.jenkins.io/doc/book/getting-started/
+
+
+
+
+
+
 
 
 
