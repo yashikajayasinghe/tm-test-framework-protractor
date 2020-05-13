@@ -17,8 +17,9 @@ ref: https://github.com/angular/protractor/blob/master/exampleTypescript/package
 
 run the command ```npm install``` to fetch all the dependencies to the node-modules folder
 
-Next step: after introducing page objects and the project run independently. 
-Instead of accessing protractor installed globaly in the local env, after following the below steps, the project will use protractor installed locally in the node_modules
+Next step: Introduce page objects and make the project run independently. 
+Note: Instead of accessing protractor installed globaly, from the local env, by following below steps, 
+the project will be upgraded to directly access protractor, installed locally in the node_modules
 
 Add the following to the package.json
 
@@ -77,7 +78,7 @@ Add the following to the package.json
 
   ```
   And then no need of running ```tsc``` command before ```npm run test```
-  pretest and test are identified as standard commands to node.
+  because 'pretest' and 'test' are identified as standard commands to node.
 
 
   Adopt chai assertion library to use with Cucumber, add it as a dependency to package.json.
@@ -115,7 +116,7 @@ Get screenshot and add to the report
 Just add the After function to step definitions with a condition to capture screen when scenario returned the Failed status.
 
 Lesson learned: https://github.com/cucumber/cucumber-js/issues/937#issuecomment-332782734 provided somehelp to 
-figure out => function is not working when reffered to the current instance of the scenario object.
+figure out (Flat arrow) => function annotation is not working when reffered to the current instance of the scenario object.
 
 
 -----------------------------------------------------------------------------
@@ -135,6 +136,12 @@ Integrate with Jenkins (local Jenkins automation server)
                   ```npm run test```
 - select 'build now' of the created jenkins job
 - to see the test report go to project 'Workspace' and select the 'test_reports' folder
+
+
+- After some changes in the main site, previously identified elements were not able to locate by the css locator and therefore identifiers were updated accordingly
+- First page load is now taking more than 5 seconds and the cucumber default timeout exceeds. As a hack for that, default timeout was set to 60 seconds (to be in the safe side)
+- added ```setDefaultTimeout(60 * 1000)``` to step definition classes.
+- Login feature is WIP.
 
 Next improvement steps:
   - run chrome headless
