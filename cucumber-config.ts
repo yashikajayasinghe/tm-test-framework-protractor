@@ -9,6 +9,7 @@
 import { Config, browser } from 'protractor';
 import * as reporter from 'cucumber-html-reporter';
 
+
 export let config: Config = {
 
     directConnect: true,
@@ -27,7 +28,7 @@ export let config: Config = {
     ],
 
     cucumberOpts: {
-        tags: "@regression",
+        tags: "@smoke",
         strict: true,                  // <boolean> fail if there are any undefined or pending steps
         format: 'json:./test_reports/cucumber-json-report.json',      // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable) 
         require: [

@@ -19,4 +19,5 @@ Scenario: User type in a keyword to search, is served with search sugesstions
    And user is navigated to the search results page
    Then assert user is served with matching number of search items
 
+
    
