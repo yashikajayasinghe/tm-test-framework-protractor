@@ -1,6 +1,6 @@
 
 import{Given, When, Then} from "cucumber";
-import {browser, element, by, By, $, $$, ExpectedConditions, ElementFinder , protractor} from 'protractor';
+import {browser, protractor} from 'protractor';
 import { tmHomePo } from '../page_objects/tm-home-po';
 import { tmMPSearch } from '../page_objects/tm-mp-search-po';
 import {setDefaultTimeout} from 'cucumber';

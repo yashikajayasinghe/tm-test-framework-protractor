@@ -4,7 +4,7 @@ Description: TM login page can be accessed from the direct click on the log in l
 Or user is served with the login form, whenever trying to access logged in user fuctionality without being logged in.
 i.e: trying to add to watchlist when not logged in
 
-@smoke
+@login
 Scenario: TM user choose to log in to the system using the log in link on the page hearder
 
  Given I navigate to tm homepage
