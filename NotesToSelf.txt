@@ -141,9 +141,10 @@ Integrate with Jenkins (local Jenkins automation server)
 - After some changes in the main site, previously identified elements were not able to locate by the css locator and therefore identifiers were updated accordingly
 - First page load is now taking more than 5 seconds and the cucumber default timeout exceeds. As a hack for that, default timeout was set to 60 seconds (to be in the safe side)
 - added ```setDefaultTimeout(60 * 1000)``` to step definition classes.
-- Login feature is WIP.
+- Login feature is now implemented (as of 17/05/2020).
 
 Next improvement steps:
+  - get test data read from an external file (i.e. email/password)
   - run chrome headless
   - automate build trigger on commit
   - get github plugin and automate build trigger commits to the github repository
