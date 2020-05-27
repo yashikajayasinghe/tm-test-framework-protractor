@@ -17,7 +17,7 @@ export let config: Config = {
     framework: 'custom',
     capabilities: {
         'browserName': 'chrome',
-        'goog:chromeOptions':{w3c: false}
+        'goog:chromeOptions':{w3c: false,  args: [ "--headless"]}
     },
 
     // path relative to the current config file
