@@ -1,7 +1,7 @@
 Feature: TM Search functionality
    User scenarios for TM search from the home page
  
- @smoke
+ @smoke @all
  Scenario: User performs a general search with a keyword
    Given a user is in 'TM-Homepage'
    When enterd 'baby stroller' to search
@@ -9,7 +9,7 @@ Feature: TM Search functionality
    And user is navigated to the search results page
    Then assert the user has served with matching search results
 
-@smoke @regression
+@smoke @regression @all
 Scenario: User type in a keyword to search, is served with search sugesstions
    Given a user is in 'TM-Homepage'
    When enterd 'samsung' to search

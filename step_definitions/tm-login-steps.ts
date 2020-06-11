@@ -1,7 +1,7 @@
 import{tmLoginPo} from "../page_objects/tm-login-po";
 import{Given, When, Then} from "cucumber";
 import {browser, protractor, element, $} from 'protractor';
-import {setDefaultTimeout} from 'cucumber';
+//import {setDefaultTimeout} from 'cucumber';
 import chai from 'chai';
 
 
@@ -26,13 +26,13 @@ import chai from 'chai';
       When('I enter Email', async () => {
         
         await browser.wait(EC.visibilityOf($(tmLoginPage.login_form_locator)), 5000,'waiting for the log in modal to be loaded' );
-        await tmLoginPage.email.sendKeys('***************'); //intentionally kept as an invalid value to avoid sensitive data to be published in the GitHub project
+        await tmLoginPage.email.sendKeys('**************'); //intentionally kept as an invalid value to avoid sensitive data to be published in the GitHub project
         
       });
 
       When('I enter the password', async ()=> {
         
-        await tmLoginPage.password.sendKeys("********"); //intentionally kept as an invalid value to avoid sensitive data to be published in the GitHub project
+        await tmLoginPage.password.sendKeys("*************"); //intentionally kept as an invalid value to avoid sensitive data to be published in the GitHub project
         
       });
 

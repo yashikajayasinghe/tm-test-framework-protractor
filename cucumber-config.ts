@@ -17,7 +17,7 @@ export let config: Config = {
     framework: 'custom',
     capabilities: {
         'browserName': 'chrome',
-        'goog:chromeOptions':{w3c: false,  args: [ "--headless"]}
+        'goog:chromeOptions':{w3c: false}
     },
 
     // path relative to the current config file
@@ -28,7 +28,7 @@ export let config: Config = {
     ],
 
     cucumberOpts: {
-        tags: "@login",
+        tags: "@all",
         strict: true,                  // <boolean> fail if there are any undefined or pending steps
         format: 'json:./test_reports/cucumber-json-report.json',      // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable) 
         require: [

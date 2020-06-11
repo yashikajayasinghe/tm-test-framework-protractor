@@ -21,7 +21,7 @@ let expect = chai.expect;
   })
 
   When('enterd {string} to search', async (string)=> {    
-    		
+    await browser.wait(EC.presenceOf(homepage.searchTextBox), 5000);		
     await homepage.searchTextBox.sendKeys(string);
 
   });
@@ -33,11 +33,11 @@ let expect = chai.expect;
 
   When('user is navigated to the search results page', async ()=> {    
 		
-    await browser.wait(EC.visibilityOf(MpSearch.catSugesstionHeading), 5000, 'waiting for the category sugesstion header to appear'); 
+    await browser.wait(EC.visibilityOf(MpSearch.catSugesstionHeading), 60000, 'waiting for the category sugesstion header to appear'); 
   });
 
   Then('assert the user has served with matching search results', async ()=> {
-     let text = await MpSearch.catSugesstionHeading.getText(); 
+     let text =  await MpSearch.catSugesstionHeading.getText(); 
     expect(text).to.equal("Narrow your search for 'baby stroller'");
   });
 
@@ -57,10 +57,10 @@ let expect = chai.expect;
 
   Then('assert user is served with matching number of search items', async ()=> {
     
-    await browser.wait(EC.urlContains('https://www.trademe.co.nz/a/marketplace/mobile-phones/mobile-phones/samsung'), 5000, 'waiting for the url to change');
+    await browser.wait(EC.urlContains('https://www.trademe.co.nz/a/marketplace/mobile-phones/search?search_string=samsung'), 10000, 'waiting for the url to change');
 
-	let SearchResults = await MpSearch.allListingCards;
+    let SearchResults = await MpSearch.allListingCards;
 
-	expect(SearchResults.length).to.equal(24);
+    expect(SearchResults.length).to.equal(23);
 
   });
